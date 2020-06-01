@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		9C49AE872484F36600AFF7D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C49AE862484F36600AFF7D3 /* Assets.xcassets */; };
 		9C49AE8A2484F36600AFF7D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C49AE882484F36600AFF7D3 /* LaunchScreen.storyboard */; };
 		9C49AE972484FACE00AFF7D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C49AE962484FACE00AFF7D3 /* GoogleService-Info.plist */; };
+		9C49AE9924850FFB00AFF7D3 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C49AE9824850FFB00AFF7D3 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		9C49AE892484F36600AFF7D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C49AE8B2484F36600AFF7D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C49AE962484FACE00AFF7D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9C49AE9824850FFB00AFF7D3 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		B752C213B98CB177E637735D /* Pods-SocialMediaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialMediaApp.release.xcconfig"; path = "Target Support Files/Pods-SocialMediaApp/Pods-SocialMediaApp.release.xcconfig"; sourceTree = "<group>"; };
 		C4C05009E35C180EA7A48297 /* Pods_SocialMediaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialMediaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9769352ABD7FC47C9C4FB7 /* Pods-SocialMediaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialMediaApp.debug.xcconfig"; path = "Target Support Files/Pods-SocialMediaApp/Pods-SocialMediaApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		9C49AE952484F45200AFF7D3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9C49AE9824850FFB00AFF7D3 /* DataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -134,7 +137,6 @@
 				EB9769352ABD7FC47C9C4FB7 /* Pods-SocialMediaApp.debug.xcconfig */,
 				B752C213B98CB177E637735D /* Pods-SocialMediaApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +260,7 @@
 				9C49AE802484F36500AFF7D3 /* FirstViewController.swift in Sources */,
 				9C49AE7C2484F36500AFF7D3 /* AppDelegate.swift in Sources */,
 				9C49AE7E2484F36500AFF7D3 /* SceneDelegate.swift in Sources */,
+				9C49AE9924850FFB00AFF7D3 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
