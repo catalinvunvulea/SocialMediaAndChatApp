@@ -9,22 +9,30 @@
 import UIKit
 
 class AuthVC: UIViewController {
+    
+    @IBOutlet weak var loginWithFacebookBtn: UIButton!
+    @IBOutlet weak var loginWithGoogleBtn: UIButton!
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginWithFacebookBtn.layer.cornerRadius = 10
+        loginWithGoogleBtn.layer.cornerRadius = 10
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func loginWithFFacebookBtnPressed(_ sender: Any) {
     }
-    */
-
+    
+    @IBAction func loginWithGoogleBtnPressed(_ sender: Any) {
+    }
+    
+    @IBAction func loginByEmailBtnPressed(_ sender: Any) {
+        let loginVC = storyboard?.instantiateViewController(withIdentifier: "LoginVC")
+        loginVC?.modalPresentationStyle = .fullScreen
+        present(loginVC!, animated: true, completion: nil)
+    }
+    
 }

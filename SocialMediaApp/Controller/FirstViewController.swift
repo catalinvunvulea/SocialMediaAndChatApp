@@ -14,18 +14,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        guard let authVC = storyboard?.instantiateViewController(withIdentifier: "AuthVC") as? AuthVC else { return }
-//        authVC.modalPresentationStyle = .fullScreen
-//        present(authVC, animated: true, completion: nil)
-//        
-//        
-//
-//    }
-    
+    }    
     
 }
 
