@@ -14,7 +14,15 @@ class FeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }    
+    }
+    
+    @IBAction func addPostBtnPressed(_ sender: Any) {
+        let createPost = storyboard?.instantiateViewController(identifier: "CreatePostVC")
+        createPost?.modalPresentationStyle = .fullScreen
+        present(createPost!, animated: true, completion: nil)
+        
+    }
+    
     
 }
 

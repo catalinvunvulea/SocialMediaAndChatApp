@@ -44,6 +44,15 @@ class DataService {
         
     }
     
+    //to upload a pst we need a message, UniqueUserId to know who posted the message, GroupKey is optional as we are not sure we have a group, and excaping handler whch will check if the send is complete:
+    func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendCmplete: @escaping( _ status: Bool) -> ()) {
+        if groupKey != nil {
+            //send the group ref
+        } else {
+            REF_FEEDS.childByAutoId().updateChildValues(["content": message, "senderId": uid]) //we add the messages in REF_FEEDS and give a unique id for each message (childByAutoId) and then update the CildValues with dictionary
+            sendCmplete(true) //once completed, we set the excaping handler to true
+        }
+    }
     
 }
 
