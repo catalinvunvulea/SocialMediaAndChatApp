@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class FirstViewController: UIViewController {
+class FeedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
