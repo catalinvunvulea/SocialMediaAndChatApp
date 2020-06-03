@@ -63,7 +63,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.73758680060000004" green="0.84121974450000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Ecn-v6-x8l" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="2XW-CH-LuM"/>
                             <constraint firstItem="OXc-45-DTd" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="2fI-wV-amB"/>
@@ -137,17 +137,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Say something here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="osP-rg-tF0">
-                                <rect key="frame" x="25" y="210" width="364" height="557"/>
-                                <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="25" y="210" width="364" height="572"/>
+                                <color key="backgroundColor" red="0.68391168243366363" green="0.7800031268145009" blue="0.92722874365482233" alpha="0.79040025684931503" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcI-Uy-Clu">
-                                <rect key="frame" x="25" y="797" width="364" height="40"/>
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
                                 <color key="backgroundColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="KEr-sJ-6Pr"/>
+                                    <constraint firstAttribute="height" constant="50" id="KEr-sJ-6Pr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="25"/>
                                 <state key="normal" title="Send"/>
@@ -161,11 +161,11 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.73758680057513626" green="0.84121974448289016" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="QZA-l1-k0g" firstAttribute="top" secondItem="jCK-nn-zss" secondAttribute="top" id="05g-aM-H4w"/>
                             <constraint firstItem="osP-rg-tF0" firstAttribute="top" secondItem="8Yy-wt-4z5" secondAttribute="bottom" constant="30" id="0Xk-AO-drV"/>
-                            <constraint firstItem="qcv-Iv-bpo" firstAttribute="bottom" secondItem="WcI-Uy-Clu" secondAttribute="bottom" constant="25" id="6Cn-h0-1la"/>
+                            <constraint firstItem="qcv-Iv-bpo" firstAttribute="bottom" secondItem="WcI-Uy-Clu" secondAttribute="bottom" id="6Cn-h0-1la"/>
                             <constraint firstItem="QZA-l1-k0g" firstAttribute="trailing" secondItem="qcv-Iv-bpo" secondAttribute="trailing" id="7FW-Hi-Sgt"/>
                             <constraint firstItem="osP-rg-tF0" firstAttribute="leading" secondItem="qcv-Iv-bpo" secondAttribute="leading" constant="25" id="BLM-Qe-iVZ"/>
                             <constraint firstItem="qcv-Iv-bpo" firstAttribute="trailing" secondItem="ykA-Jj-kGb" secondAttribute="trailing" constant="20" id="D3a-Mk-9Id"/>
@@ -173,8 +173,8 @@
                             <constraint firstItem="QZA-l1-k0g" firstAttribute="leading" secondItem="qcv-Iv-bpo" secondAttribute="leading" id="KQR-Dc-e5g"/>
                             <constraint firstItem="ykA-Jj-kGb" firstAttribute="leading" secondItem="8Yy-wt-4z5" secondAttribute="trailing" constant="20" id="TFa-v7-Uen"/>
                             <constraint firstItem="ykA-Jj-kGb" firstAttribute="centerY" secondItem="8Yy-wt-4z5" secondAttribute="centerY" id="b4I-9f-0cQ"/>
-                            <constraint firstItem="qcv-Iv-bpo" firstAttribute="trailing" secondItem="WcI-Uy-Clu" secondAttribute="trailing" constant="25" id="bk3-Vv-Q34"/>
-                            <constraint firstItem="WcI-Uy-Clu" firstAttribute="leading" secondItem="qcv-Iv-bpo" secondAttribute="leading" constant="25" id="kTu-VS-fJk"/>
+                            <constraint firstItem="qcv-Iv-bpo" firstAttribute="trailing" secondItem="WcI-Uy-Clu" secondAttribute="trailing" id="bk3-Vv-Q34"/>
+                            <constraint firstItem="WcI-Uy-Clu" firstAttribute="leading" secondItem="qcv-Iv-bpo" secondAttribute="leading" id="kTu-VS-fJk"/>
                             <constraint firstItem="WcI-Uy-Clu" firstAttribute="top" secondItem="osP-rg-tF0" secondAttribute="bottom" constant="30" id="s8C-mM-LHw"/>
                             <constraint firstItem="8Yy-wt-4z5" firstAttribute="leading" secondItem="qcv-Iv-bpo" secondAttribute="leading" constant="20" id="yko-TU-PdE"/>
                             <constraint firstItem="qcv-Iv-bpo" firstAttribute="trailing" secondItem="osP-rg-tF0" secondAttribute="trailing" constant="25" id="zLF-SN-J02"/>
@@ -245,7 +245,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.73758680060000004" green="0.84121974450000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="gey-e5-vxQ" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="2nU-MS-sI9"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="Qhc-Bg-dVF" secondAttribute="bottom" id="34m-Ou-OZH"/>
@@ -341,7 +341,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.73758680060000004" green="0.84121974450000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Qvz-hH-xAA" firstAttribute="top" secondItem="L9v-3u-K6b" secondAttribute="bottom" id="I5l-hj-2JG"/>
                             <constraint firstItem="Qvz-hH-xAA" firstAttribute="leading" secondItem="uod-9N-wET" secondAttribute="leading" id="Rjt-1C-zP7"/>

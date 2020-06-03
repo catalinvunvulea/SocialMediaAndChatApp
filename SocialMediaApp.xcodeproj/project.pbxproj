@@ -24,6 +24,7 @@
 		9C49AEAA2485436200AFF7D3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C49AEA92485436200AFF7D3 /* AuthService.swift */; };
 		9CFDFFD52487B0A9003298B2 /* MyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFDFFD42487B0A9003298B2 /* MyProfileVC.swift */; };
 		9CFDFFD72487BD8E003298B2 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFDFFD62487BD8E003298B2 /* CreatePostVC.swift */; };
+		9CFDFFD92487D61E003298B2 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFDFFD82487D61E003298B2 /* UIViewExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		9C49AEA92485436200AFF7D3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		9CFDFFD42487B0A9003298B2 /* MyProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileVC.swift; sourceTree = "<group>"; };
 		9CFDFFD62487BD8E003298B2 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
+		9CFDFFD82487D61E003298B2 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		B752C213B98CB177E637735D /* Pods-SocialMediaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialMediaApp.release.xcconfig"; path = "Target Support Files/Pods-SocialMediaApp/Pods-SocialMediaApp.release.xcconfig"; sourceTree = "<group>"; };
 		C4C05009E35C180EA7A48297 /* Pods_SocialMediaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialMediaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9769352ABD7FC47C9C4FB7 /* Pods-SocialMediaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialMediaApp.debug.xcconfig"; path = "Target Support Files/Pods-SocialMediaApp/Pods-SocialMediaApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		9C49AE942484F44600AFF7D3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9CFDFFD82487D61E003298B2 /* UIViewExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CFDFFD92487D61E003298B2 /* UIViewExt.swift in Sources */,
 				9C49AEA82485407000AFF7D3 /* ShadowView.swift in Sources */,
 				9C49AEA1248538F700AFF7D3 /* AuthVC.swift in Sources */,
 				9C49AE822484F36500AFF7D3 /* GroupsVC.swift in Sources */,
