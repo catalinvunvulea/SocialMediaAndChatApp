@@ -54,5 +54,22 @@ class DataService {
         }
     }
     
+    func getAllFeedMessages(handler: @escaping(_ messages: [Message]) ->()) {
+        var messageArray = [Message]()
+        _REF_FEEDS.observeSingleEvent(of: .value) { (feedMessageSnapShot) in
+            guard let feedMessageSnapShot = feedMessageSnapShot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for message in feedMessageSnapShot {
+                let conten = message.childSnapshot(forPath: "content").value as! String // "content" is the name from firebase, and we need the cvalue of the content, hence .value
+                let senderId = message.childSnapshot(forPath: "senderId").value as! String
+                let message = Message(content: conten, senderId: senderId) //this is a new constant and not the one from the loop
+                messageArray.append(message)
+            }
+            
+        handler(messageArray)
+        }
+         
+    }
+    
 }
 
