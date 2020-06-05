@@ -26,7 +26,7 @@ class FeedVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         DataService.instance.getAllFeedMessages { (returnedMessagesArray) in
-            self.messagesArray = returnedMessagesArray
+            self.messagesArray = returnedMessagesArray.reversed() //reversed is addded to show the last feed first
             self.tableView.reloadData()
         }
     }
@@ -53,7 +53,10 @@ extension FeedVC: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedsCell") as? FeedsCell else { return UITableViewCell() }
         let image = UIImage(named: "defaultProfileImage")
         let message = messagesArray[indexPath.row]
-        cell.configureFeedCell(image: image!, email: message.senderId, content: message.content)
+        DataService.instance.getUsername(forUID: message.senderId) { (returnedUsername) in
+              cell.configureFeedCell(image: image!, email: returnedUsername, content: message.content)
+        }
+      
         return cell
     }
     

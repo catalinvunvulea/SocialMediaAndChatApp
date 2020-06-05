@@ -71,5 +71,18 @@ class DataService {
          
     }
     
+    //toa void showing the unique id instead of the user, below func is requiered
+    
+    func getUsername(forUID uid: String, handler: @escaping (_ username: String) -> ()) {
+        REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in //observeSingleEvent is an firebase func to loop once the prefixed array
+            guard let userSnapshotX = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            for user in userSnapshotX {
+                if user.key == uid {
+                    handler(user.childSnapshot(forPath: "email").value as! String)
+                }
+            }
+        }
+    }
+    
 }
 
