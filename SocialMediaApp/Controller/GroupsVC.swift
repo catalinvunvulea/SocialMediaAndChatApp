@@ -14,6 +14,13 @@ class GroupsVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func addNewGroup(_ sender: Any) {
+        let createGroup = (storyboard?.instantiateViewController(identifier: "CreateGroupVC"))! as CreateGroupVC
+        createGroup.modalPresentationStyle = .fullScreen
+        present(createGroup,animated: true, completion: nil)
+    }
+    
 
 
 }
