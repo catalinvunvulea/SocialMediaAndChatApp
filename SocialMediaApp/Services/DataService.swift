@@ -96,7 +96,21 @@ class DataService {
             }
             handler(emailArray)
         }
-        
+    }
+    //once we added the emails to a group, we need to get the id's
+    func getIds(forUsernames usernames: String, handler: @escaping(_ uIdArray: [String]) -> ()) {
+        REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
+            var idArray = [String]()
+            guard let userSnapshotX = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for user in userSnapshotX {
+                let email = user.childSnapshot(forPath: "email").value as! String
+                if usernames.contains(email) {
+                    idArray.append(user.key)
+                }
+            }
+            handler(idArray)
+        }
     }
     
 }
