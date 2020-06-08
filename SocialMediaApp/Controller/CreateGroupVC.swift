@@ -20,6 +20,7 @@ class CreateGroupVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var emailArray = [String]()
+    var chosenEmailArray = [String]() //array of emails selected to add to group
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,11 @@ class CreateGroupVC: UIViewController {
         tableView.dataSource = self
         emailSearchTextField.delegate = self
         emailSearchTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        doneBtn.isHidden = true
     }
     
     @objc func textFieldDidChange() {
@@ -58,9 +64,32 @@ extension CreateGroupVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as? UserCell else { return UITableViewCell()}
         let image = UIImage(named: "defaultProfileImage")
-        cell.configureCell(profileImage: image!, email: emailArray[indexPath.row], isSelected: true)
+        
+        if chosenEmailArray.contains(cell.emailLbl.text!) {
+            cell.configureCell(profileImage: image!, email: emailArray[indexPath.row], isSelected: true)
+        } else {
+           cell.configureCell(profileImage: image!, email: emailArray[indexPath.row], isSelected: false)
+        }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? UserCell else { return }
+        if !chosenEmailArray.contains(cell.emailLbl.text!) {
+            chosenEmailArray.append(cell.emailLbl.text!)
+            groupMemberLbl.text = chosenEmailArray.joined(separator: ", ")
+            doneBtn.isHidden = false
+        } else {
+            chosenEmailArray = chosenEmailArray.filter({ $0 != cell.emailLbl.text }) //$0 is just like a temporary variable in a for in loop; this line of code will filter and return al elements of choseEmailArray except the current selected one (cell.emailLbl.text)
+            if chosenEmailArray.count >= 1 {
+                groupMemberLbl.text = chosenEmailArray.joined(separator: ", ")
+            } else {
+                groupMemberLbl.text = "Add people to your group"
+                doneBtn.isHidden = true
+            }
+        }
+    }
+    
 }
 
 extension CreateGroupVC: UITextFieldDelegate {
