@@ -19,11 +19,26 @@ class CreateGroupVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var emailArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        emailSearchTextField.delegate = self
+        emailSearchTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+    
+    @objc func textFieldDidChange() {
+        if emailSearchTextField.text == nil {
+            emailArray = [] //if e haven't written aniyhing in the texfield, we need to clear all cells from the tableview, as we haven't searched anything
+            tableView.reloadData()
+        } else {
+            DataService.instance.getEmail(forSearchQuery: emailSearchTextField.text!) { (returnedEmailArray) in
+                self.emailArray = returnedEmailArray
+                self.tableView.reloadData()
+            }
+        }
     }
     
     @IBAction func closeBtnPressed(_ sender: Any) {
@@ -37,15 +52,17 @@ class CreateGroupVC: UIViewController {
 
 extension CreateGroupVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return emailArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as? UserCell else { return UITableViewCell()}
         let image = UIImage(named: "defaultProfileImage")
-        cell.configureCell(profileImage: image!, email: "catalin.vunvulea@gmail.com", isSelected: true)
+        cell.configureCell(profileImage: image!, email: emailArray[indexPath.row], isSelected: true)
         return cell
     }
-    
+}
+
+extension CreateGroupVC: UITextFieldDelegate {
     
 }
