@@ -71,7 +71,7 @@ class DataService {
          
     }
     
-    //toa void showing the unique id instead of the user, below func is requiered
+    //to avoid showing the unique id instead of the user, below func is requiered
     
     func getUsername(forUID uid: String, handler: @escaping (_ username: String) -> ()) {
         REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in //observeSingleEvent is an firebase func to loop once the prefixed array
@@ -82,6 +82,21 @@ class DataService {
                 }
             }
         }
+    }
+    
+    func getEmail(forSearchQuery query: String, handler: @escaping(_ emailArray: [String]) -> ()) {
+        var emailArray = [String]()
+        REF_USERS.observe(.value) { (userSnapshot) in   //we use .value as we are looking to the entire reference for all of his values
+            guard let userSnapshotX = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            for user in userSnapshotX {
+                let email = user.childSnapshot(forPath: "email").value as! String //from the user child, we take the key of the "email" path ) which is the email address)
+                if email.contains(query) == true && email != Auth.auth().currentUser?.email { //we don't want to show our email in the search
+                    emailArray.append(email)
+                }
+            }
+            handler(emailArray)
+        }
+        
     }
     
 }
