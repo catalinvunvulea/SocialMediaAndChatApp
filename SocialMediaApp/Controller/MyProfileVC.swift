@@ -34,6 +34,7 @@ class MyProfileVC: UIViewController {
     
     @IBAction func signOutBtnPressed(_ sender: Any) {
         let logoutPopup = UIAlertController(title: "Logout?", message: "Are you sure you want to Logout?", preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { (buttonTapped) in
             do {
                  try Auth.auth().signOut() //this wil throw something hence we use do try  cathc
@@ -44,7 +45,9 @@ class MyProfileVC: UIViewController {
                 print(error.localizedDescription)
             }
         }
+        logoutPopup.addAction(cancel)
         logoutPopup.addAction(logoutAction)
+        
         present(logoutPopup, animated: true, completion: nil)
     }
     
