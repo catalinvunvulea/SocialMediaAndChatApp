@@ -71,6 +71,20 @@ class DataService {
          
     }
     
+    func getAllMessagesFor(desiredGroup: Group, handler: @escaping(_ messagesArray: [Message]) -> ()) {
+        var groupMessagesArray = [Message]()
+        REF_GROUPS.child(desiredGroup.key).child("messages").observeSingleEvent(of: .value) { (groupMessageSnapshot) in
+            guard let groupMessageSnapshotX = groupMessageSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            for groupMessage in groupMessageSnapshotX {
+                let content = groupMessage.childSnapshot(forPath: "content").value as! String
+                let senderId = groupMessage.childSnapshot(forPath: "senderId").value as! String
+                let groupMessage = Message(content: content, senderId: senderId)
+                groupMessagesArray.append(groupMessage)
+            }
+        }
+        handler(groupMessagesArray)
+    }
+    
     //to avoid showing the unique id instead of the user, below func is requiered
     
     func getUsername(forUID uid: String, handler: @escaping (_ username: String) -> ()) {

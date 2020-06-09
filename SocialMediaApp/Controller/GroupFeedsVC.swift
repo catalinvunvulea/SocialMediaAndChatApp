@@ -21,6 +21,7 @@ class GroupFeedsVC: UIViewController {
     
     
     var group: Group?
+    var groupMessages = [Message]()
     var showMembers = false
     
     func initData (forGroup group: Group) {
@@ -40,6 +41,13 @@ class GroupFeedsVC: UIViewController {
             self.groupmembersLbl.text = returnedEmails.joined(separator: ", ")
         }
         showHideMembers()
+        
+        DataService.instance.REF_GROUPS.observe(.value) { (snapshot) in //line of code to observe any change in the REF_GROUPS on firebase
+            DataService.instance.getAllMessagesFor(desiredGroup: self.group!) { (returnedGroupMessages) in
+                self.groupMessages = returnedGroupMessages
+                self.tableView.reloadData()
+            }
+        }
         
     }
     
@@ -74,3 +82,19 @@ class GroupFeedsVC: UIViewController {
     
     
 }
+
+extension GroupFeedsVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return groupMessages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupFeedsCell", for: indexPath) as? GroupFeedsCell else { return UITableViewCell()}
+        let message = groupMessages[indexPath.row]
+        DataService.instance.getUsername(forUID: message.senderId) { (email) in
+            cell.configureCell(image: UIImage(named: "defaultProfileImage")! , email: email, content: message.content)
+        }
+            return cell
+    }
+}
+    
