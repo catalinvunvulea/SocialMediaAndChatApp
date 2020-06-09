@@ -47,7 +47,8 @@ class DataService {
     //to upload a pst we need a message, UniqueUserId to know who posted the message, GroupKey is optional as we are not sure we have a group, and excaping handler whch will check if the send is complete:
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendCmplete: @escaping( _ status: Bool) -> ()) {
         if groupKey != nil {
-            REF_GROUPS.child(groupKey!).child("message").childByAutoId().updateChildValues(["content": message, "senderId": uid]) //on firebase, users, we create a folder (add a child) named groupKey (name will be passed form the func), and in this folder a child message, and in here a autoId where we ade the content and sender id
+            REF_GROUPS.child(groupKey!).child("messages").childByAutoId().updateChildValues(["content": message, "senderId": uid]) //on firebase, users, we create a folder (add a child) named groupKey (name will be passed form the func), and in this folder a child message, and in here a autoId where we ade the content and sender id
+            sendCmplete(true)
         } else {
             REF_FEEDS.childByAutoId().updateChildValues(["content": message, "senderId": uid]) //we add the messages in REF_FEEDS and give a unique id for each message (childByAutoId) and then update the CildValues with dictionary
             sendCmplete(true) //once completed, we set the excaping handler to true
@@ -78,11 +79,12 @@ class DataService {
             for groupMessage in groupMessageSnapshotX {
                 let content = groupMessage.childSnapshot(forPath: "content").value as! String
                 let senderId = groupMessage.childSnapshot(forPath: "senderId").value as! String
-                let groupMessage = Message(content: content, senderId: senderId)
-                groupMessagesArray.append(groupMessage)
+                let groupMessageX = Message(content: content, senderId: senderId)
+                groupMessagesArray.append(groupMessageX)
             }
+             handler(groupMessagesArray)
         }
-        handler(groupMessagesArray)
+       
     }
     
     //to avoid showing the unique id instead of the user, below func is requiered

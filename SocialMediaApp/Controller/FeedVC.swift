@@ -19,15 +19,17 @@ class FeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
-        tableView.dataSource = self
-        
+        tableView.dataSource = self        
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         DataService.instance.getAllFeedMessages { (returnedMessagesArray) in
             self.messagesArray = returnedMessagesArray.reversed() //reversed is addded to show the last feed first
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -56,10 +58,7 @@ extension FeedVC: UITableViewDataSource {
         DataService.instance.getUsername(forUID: message.senderId) { (returnedUsername) in
               cell.configureFeedCell(image: image!, email: returnedUsername, content: message.content)
         }
-      
         return cell
     }
-    
-    
 }
 
