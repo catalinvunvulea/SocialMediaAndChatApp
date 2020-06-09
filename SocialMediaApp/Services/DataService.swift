@@ -118,5 +118,23 @@ class DataService {
         handler(true)
     }
     
+    func getAllGroups(handler: @escaping(_ groupsArray: [Group]) -> ()) {
+        var groupsArrayX = [Group]()
+        REF_GROUPS.observeSingleEvent(of: .value) { (groupSnapshot) in //observe single event get called only once. If data is changing on firebase we won't be able to see it hence we set an observer (not observe single event) in GroupsVC (in view did apear) to see when something has changed
+            guard let groupSnapshotX = groupSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            for group in groupSnapshotX {
+                let memberArray = group.childSnapshot(forPath: "members").value as! [String]
+                if memberArray.contains(Auth.auth().currentUser!.uid) { //we download the group only if we are includet
+                    let title = group.childSnapshot(forPath: "title").value as! String
+                    let description = group.childSnapshot(forPath: "description").value as! String
+                    let groupX = Group(title: title, description: description, key: group.key, memberCount: memberArray.count, members: memberArray)
+                    
+                    groupsArrayX.append(groupX)
+                }
+            }
+            handler(groupsArrayX)
+        }
+    }
+    
 }
 
