@@ -129,12 +129,12 @@
 			isa = PBXGroup;
 			children = (
 				9C49AE7F2484F36500AFF7D3 /* FeedVC.swift */,
-				9C49AE812484F36500AFF7D3 /* GroupsVC.swift */,
 				9C49AEA0248538F700AFF7D3 /* AuthVC.swift */,
 				9C49AEA22485391200AFF7D3 /* LoginVC.swift */,
 				9CFDFFD42487B0A9003298B2 /* MyProfileVC.swift */,
 				9CFDFFD62487BD8E003298B2 /* CreatePostVC.swift */,
 				9C7B639F248E417900EDD9B8 /* CreateGroupVC.swift */,
+				9C49AE812484F36500AFF7D3 /* GroupsVC.swift */,
 				9C7AA3DC248F9F3700C4F486 /* GroupFeedsVC.swift */,
 			);
 			path = Controller;
