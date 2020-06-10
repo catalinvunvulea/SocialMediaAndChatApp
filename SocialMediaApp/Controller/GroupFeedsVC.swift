@@ -48,7 +48,10 @@ class GroupFeedsVC: UIViewController {
         DataService.instance.REF_GROUPS.observe(.value) { (snapshot) in //line of code to observe any change in the REF_GROUPS on firebase
             DataService.instance.getAllMessagesFor(desiredGroup: self.group!) { (returnedGroupMessages) in
                 self.groupMessages = returnedGroupMessages
-                self.tableView.reloadData()
+                 self.tableView.reloadData()
+                    if self.groupMessages.count > 0 {
+                    self.tableView.scrollToRow(at: IndexPath(row: self.groupMessages.count - 1, section: 0), at: .bottom, animated: true) //animate scroll to the last message
+                }
             }
         }
     }
@@ -58,7 +61,7 @@ class GroupFeedsVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showHideMembers()
-        tableView.reloadData()
+//        tableView.reloadData()
     }
     
     @IBAction func showHidemembersBtnPressed(_ sender: Any) {
