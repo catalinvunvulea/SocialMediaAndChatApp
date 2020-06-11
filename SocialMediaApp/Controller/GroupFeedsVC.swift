@@ -19,6 +19,7 @@ class GroupFeedsVC: UIViewController {
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var showHidemembersBtn: UIButton!
     @IBOutlet weak var membersView: UIView!
+    @IBOutlet weak var stackView: UIStackView!
     
     
     var group: Group?
@@ -34,7 +35,7 @@ class GroupFeedsVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        sendBtnView.bindToKeyboard()
+        stackView.bindToKeyboard()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,7 +73,7 @@ class GroupFeedsVC: UIViewController {
     
     
     @IBAction func backBtnPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismissDetail()
     }
     
     @IBAction func sendBtnPressed(_ sender: Any) {

@@ -61,7 +61,7 @@ extension GroupsVC: UITableViewDelegate, UITableViewDataSource {
         guard let groupFeeds = storyboard?.instantiateViewController(identifier: "GroupFeedsVC") as? GroupFeedsVC else { return }
         groupFeeds.initData(forGroup: groupsArray[indexPath.row])
         groupFeeds.modalPresentationStyle = .fullScreen
-        present(groupFeeds, animated: true, completion: nil)
+        presentDetail(groupFeeds)
     }
     
 }
